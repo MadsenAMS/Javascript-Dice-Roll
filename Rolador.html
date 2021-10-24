@@ -1,0 +1,244 @@
+<html> 
+
+<head>
+
+	<style>
+	
+		body {
+			background-color : #a2866d;
+		}
+		
+		.button {
+			cursor : pointer;
+			background: radial-gradient(#6b4423, #ac8f57, #e0cda7);
+		}
+		
+		.roll {
+			background: radial-gradient(#446D44, #467e46, #5ba55b);
+		}
+		
+		.roll2 {
+			background: radial-gradient(#446D44, #467e46, #5ba55b);
+			display: none;
+		}
+		
+		table {
+			color : white;
+			background-color : #446d44;
+			text-align : center;
+			border-style: solid;
+			border-color : #988866;
+			margin-left: auto;
+			margin-right: auto;
+				user-select: none;
+				-webkit-user-select: none;  
+				-moz-user-select: none;    
+				-ms-user-select: none;      
+				
+			
+		}
+		
+		td {
+			width : 50px;
+			height : 50px;
+			border-style: solid;
+			border-color: #988866;
+		}
+		
+	</style>
+	
+</head>
+
+<body>
+
+<table>
+	<tr>
+		<td class = "button" onclick="rolagem(20)">d2</td>
+		<td class = "button" onclick="rolagem(30)">d3</td>
+		<td class = "button" onclick="rolagem(40)">d4</td>
+		<td class = "button" onclick="rolagem(50)">d5</td>
+		<td class = "button" onclick="rolagem(60)">d6</td>
+		<td class = "button" onclick="rolagem(100)">d10</td>
+		<td class = "button" onclick="rolagem(1000)">d100</td>
+	</tr>
+	<tr>
+		<td class = "roll" id="20"></td>
+		<td class = "roll" id="30"></td>
+		<td class = "roll" id="40"></td>
+		<td class = "roll" id="50"></td>
+		<td class = "roll" id="60"></td>
+		<td class = "roll" id="100"></td>
+		<td class = "roll" id="1000"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="21"></td>
+		<td class = "roll2" id="31"></td>
+		<td class = "roll2" id="41"></td>
+		<td class = "roll2" id="51"></td>
+		<td class = "roll2" id="61"></td>
+		<td class = "roll2" id="101"></td>
+		<td class = "roll2" id="1001"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="22"></td>
+		<td class = "roll2" id="32"></td>
+		<td class = "roll2" id="42"></td>
+		<td class = "roll2" id="52"></td>
+		<td class = "roll2" id="62"></td>
+		<td class = "roll2" id="102"></td>
+		<td class = "roll2" id="1002"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="23"></td>
+		<td class = "roll2" id="33"></td>
+		<td class = "roll2" id="43"></td>
+		<td class = "roll2" id="53"></td>
+		<td class = "roll2" id="63"></td>
+		<td class = "roll2" id="103"></td>
+		<td class = "roll2" id="1003"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="24"></td>
+		<td class = "roll2" id="34"></td>
+		<td class = "roll2" id="44"></td>
+		<td class = "roll2" id="54"></td>
+		<td class = "roll2" id="64"></td>
+		<td class = "roll2" id="104"></td>
+		<td class = "roll2" id="1004"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="25"></td>
+		<td class = "roll2" id="35"></td>
+		<td class = "roll2" id="45"></td>
+		<td class = "roll2" id="55"></td>
+		<td class = "roll2" id="65"></td>
+		<td class = "roll2" id="105"></td>
+		<td class = "roll2" id="1005"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="26"></td>
+		<td class = "roll2" id="36"></td>
+		<td class = "roll2" id="46"></td>
+		<td class = "roll2" id="56"></td>
+		<td class = "roll2" id="66"></td>
+		<td class = "roll2" id="106"></td>
+		<td class = "roll2" id="1006"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="27"></td>
+		<td class = "roll2" id="37"></td>
+		<td class = "roll2" id="47"></td>
+		<td class = "roll2" id="57"></td>
+		<td class = "roll2" id="67"></td>
+		<td class = "roll2" id="107"></td>
+		<td class = "roll2" id="1007"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="28"></td>
+		<td class = "roll2" id="38"></td>
+		<td class = "roll2" id="48"></td>
+		<td class = "roll2" id="58"></td>
+		<td class = "roll2" id="68"></td>
+		<td class = "roll2" id="108"></td>
+		<td class = "roll2" id="1008"></td>
+	</tr>
+		<tr>
+		<td class = "roll2" id="29"></td>
+		<td class = "roll2" id="39"></td>
+		<td class = "roll2" id="49"></td>
+		<td class = "roll2" id="59"></td>
+		<td class = "roll2" id="69"></td>
+		<td class = "roll2" id="109"></td>
+		<td class = "roll2" id="1009"></td>
+	</tr>
+	<tr>
+		<th id = "Contador" class = "button" colspan = "4" onclick = "allRoll()">Fus... Roo...</th>
+		<th class = "button" onclick = "clearAll()">Clear</th>
+		<th class = "button" onclick = "toggleDiceCount(0)" id = "110"> + </th>
+		<th class = "button" onclick = "toggleDiceCount(1)" id = "111"> - </th>
+	</tr>
+</table>
+
+<script>
+	var alternador = 1; //Utilizado para indicar no botão de baixo que o dado foi rolado (caso de rolagem repetido).
+	var dadosRolados = 1; //Utilizado pra definir a quantidade de dados a serem rolados.
+	var i = 0;
+	
+	function rolagem(dado){
+		for(i = 0; i < dadosRolados; i++){
+			document.getElementById(dado + i).innerHTML = ( (Math.floor ( (Math.random() * 100) + 1 )) % (dado/10) ) + 1;
+		}
+		
+		if(alternador == 1){
+			document.getElementById("Contador").innerHTML = "DA!";
+			alternador = 2;
+		}else{
+			document.getElementById("Contador").innerHTML = "Fus... Roo...";
+			alternador = 1;
+		}		
+	}
+	
+	function allRoll(){
+		for(i = 0; i < dadosRolados; i++){
+			document.getElementById(20 + i).innerHTML = ( (Math.floor ( (Math.random() * 100) + 1 )) % 2 ) + 1;
+			document.getElementById(30 + i).innerHTML = ( (Math.floor ( (Math.random() * 100) + 1 )) % 3 ) + 1;
+			document.getElementById(40 + i).innerHTML = ( (Math.floor ( (Math.random() * 100) + 1 )) % 4 ) + 1;
+			document.getElementById(50 + i).innerHTML = ( (Math.floor ( (Math.random() * 100) + 1 )) % 5 ) + 1;
+			document.getElementById(60 + i).innerHTML = ( (Math.floor ( (Math.random() * 100) + 1 )) % 6 ) + 1;
+			document.getElementById(100 + i).innerHTML = ( (Math.floor ( (Math.random() * 100) + 1 )) % 10 ) + 1;
+			document.getElementById(1000 + i).innerHTML = ( (Math.floor ( (Math.random() * 100) + 1 )) % 100 ) + 1;
+		}
+		if(alternador == 1){
+			document.getElementById("Contador").innerHTML = "DA!";
+			alternador = 2;
+		}else{
+			document.getElementById("Contador").innerHTML = "Fus... Roo...";
+			alternador = 1;
+		}		
+	}
+
+	function toggleDiceCount(plusOrMinus){
+		if(!plusOrMinus && dadosRolados < 11){
+				
+			document.getElementById(20 + dadosRolados).style.display = "table-cell";
+			document.getElementById(30 + dadosRolados).style.display = "table-cell";
+			document.getElementById(40 + dadosRolados).style.display = "table-cell";
+			document.getElementById(50 + dadosRolados).style.display = "table-cell";
+			document.getElementById(60 + dadosRolados).style.display = "table-cell";
+			document.getElementById(100 + dadosRolados).style.display = "table-cell";
+			document.getElementById(1000 + dadosRolados).style.display = "table-cell";
+
+			dadosRolados++;
+									
+		}else if(plusOrMinus && dadosRolados > 1){
+			
+			dadosRolados--;
+				
+			document.getElementById(20 + dadosRolados).style.display = "none";
+			document.getElementById(30 + dadosRolados).style.display = "none";
+			document.getElementById(40 + dadosRolados).style.display = "none";
+			document.getElementById(50 + dadosRolados).style.display = "none";
+			document.getElementById(60 + dadosRolados).style.display = "none";
+			document.getElementById(100 + dadosRolados).style.display = "none";
+			document.getElementById(1000 + dadosRolados).style.display = "none";
+	
+		}
+	}
+	
+	function clearAll() {
+			var clearables = document.getElementsByClassName("roll");
+			for(i = 0; i < clearables.length; i++){
+				clearables[i].innerHTML = "";
+			}
+			
+			clearables = document.getElementsByClassName("roll2");
+			for(i = 0; i < clearables.length; i++){
+				clearables[i].innerHTML = "";
+			}
+	}
+	
+</script>
+
+</body>
+
+</html>
